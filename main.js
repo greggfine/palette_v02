@@ -1,7 +1,3 @@
-/*
-Get form input working to console
-*/
-
 const form = document.getElementById("input-form");
 
 form.addEventListener("submit", function(e){
@@ -17,18 +13,16 @@ form.addEventListener("submit", function(e){
 
 	const projects = [];
 
-	projects.push(project);
-
-	localStorage.setItem("Projects", JSON.stringify(projects));
+	if(localStorage.getItem("Projects") == null){
+		projects.push(project);
+		localStorage.setItem("Projects", JSON.stringify(projects));
+	} else {
+		const storageProjects = JSON.parse(localStorage.getItem("Projects"));
+		storageProjects.push(project);
+		localStorage.setItem("Projects", JSON.stringify(storageProjects));
+	}
 
 	this.reset();
 
 })
 
-
-/*project = {
-	projectName: projectName,
-	instrumentName: instrumentName
-} */
-
-//localStorage.setItem("Projects", object)
