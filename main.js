@@ -6,9 +6,13 @@ form.addEventListener("submit", function(e){
 	const projectName = document.getElementById("project-name").value;
 	const instrumentName = document.getElementById("instrument-name").value;
 
+	const instrumentList = [];
+
+	instrumentList.push(instrumentName);
+
 	const project = {
 		projectName: projectName,
-		instrumentName: instrumentName
+		instrumentList: instrumentList
 	};
 
 	const projects = [];
@@ -26,3 +30,5 @@ form.addEventListener("submit", function(e){
 
 })
 
+
+/* Need to be able to add more than one instrument */
